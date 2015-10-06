@@ -1,8 +1,19 @@
 \contentsline {chapter}{\numberline {第1章}序論}{7}{chapter.1}
 \contentsline {chapter}{\numberline {第2章}背景}{9}{chapter.2}
-\contentsline {chapter}{\numberline {第3章}目的}{15}{chapter.3}
-\contentsline {chapter}{\numberline {第4章}手法}{17}{chapter.4}
-\contentsline {chapter}{\numberline {第5章}結果}{19}{chapter.5}
-\contentsline {chapter}{\numberline {第6章}考察}{21}{chapter.6}
-\contentsline {chapter}{\numberline {第7章}結論}{23}{chapter.7}
-\contentsline {chapter}{参考文献}{25}{chapter*.3}
+\contentsline {section}{\numberline {2.1}研究背景}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Wikipediaとは}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}記事の編集の仕方}{9}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Wikipediaの編集履歴データ}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Wikipedia:編集回数の多いページの一覧}{12}{subsection.2.2.3}
+\contentsline {chapter}{\numberline {第3章}目的}{19}{chapter.3}
+\contentsline {chapter}{\numberline {第4章}手法}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}VirtualBoxのインストール}{22}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}ダウンロード}{22}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}インストーラーの実行}{22}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Ubuntuのインストール}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}ISOイメージをダウンロードする}{23}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}インストールを開始する}{24}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {第5章}結果}{27}{chapter.5}
+\contentsline {chapter}{\numberline {第6章}考察}{29}{chapter.6}
+\contentsline {chapter}{\numberline {第7章}結論}{31}{chapter.7}
+\contentsline {chapter}{参考文献}{33}{chapter*.3}
