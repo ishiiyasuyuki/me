@@ -13,6 +13,8 @@
 \contentsline {section}{\numberline {4.2}Ubuntuのインストール}{23}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}ISOイメージをダウンロードする}{23}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}インストールを開始する}{24}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Wikipediaの編集履歴データの取得}{25}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}ファイルのダウンロード}{25}{subsection.4.3.1}
 \contentsline {chapter}{\numberline {第5章}結果}{27}{chapter.5}
 \contentsline {chapter}{\numberline {第6章}考察}{29}{chapter.6}
 \contentsline {chapter}{\numberline {第7章}結論}{31}{chapter.7}

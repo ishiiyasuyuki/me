@@ -132,7 +132,7 @@ URLはhttps://dumps.wikimedia.org/jawiki/
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=14cm]{sample7.png}
+\includegraphics[width=12cm]{sample7.png}
 
 \end{figure}
 
@@ -140,7 +140,7 @@ URLはhttps://dumps.wikimedia.org/jawiki/
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=14cm]{sample8.png}
+\includegraphics[width=12cm]{sample8.png}
 
 \end{figure}
 
@@ -148,7 +148,7 @@ URLはhttps://dumps.wikimedia.org/jawiki/
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=14cm]{sample9.png}
+\includegraphics[width=12cm]{sample9.png}
 
 \end{figure}
 
@@ -437,7 +437,7 @@ http://success.tracpath.com/blog/2013/10/15/virtualbox%E3%81%AE%E5%B0%8E%E5%85%A
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=12cm]{UbuntuDL.png}
+\includegraphics[width=10cm]{UbuntuDL.png}
 \caption{UbuntuのISOイメージダウンロードページ}\label{サンプル図}
 \end{figure}
 
@@ -450,7 +450,7 @@ http://success.tracpath.com/blog/2013/10/15/virtualbox%E3%81%AE%E5%B0%8E%E5%85%A
 次にインストールしたVirtualBox を立ち上げ，ウインドウ左上にある「新規（N）」のボタンを押してゲストマシンの作成を行う．ゲストマシンの名前，メモリサイズ，HDD の設定をするとウィンドウが閉じられる．
 
 %図の挿入
-\begin{figure}[htb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=12cm]{VBoxWindow.PNG}
 \caption{VirtualBox のウィンドウとゲストマシン作成ウィンドウ}\label{サンプル図}
@@ -464,11 +464,38 @@ http://success.tracpath.com/blog/2013/10/15/virtualbox%E3%81%AE%E5%B0%8E%E5%85%A
 
 
 %図の挿入
-\begin{figure}[htb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=14cm]{Ubuntu_on_VirtualBox.PNG}
 \caption{VirtualBox 上で動作するUbuntu}\label{サンプル図}
 \end{figure}
+
+
+\section{Wikipediaの編集履歴データの取得}
+
+\subsection{ファイルのダウンロード}
+
+日本語版Wikipediaのデータは，https://dumps.wikimedia.org/jawiki/からダウンロードできる．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{Index_of_jawiki.PNG}
+\caption{日本語版Wikipediaデータダウンロードサイト}\label{サンプル図}
+\end{figure}
+
+再現性を確保するため，20150901番を扱う．latestだと，最新だが，日々更新されて変更されてしまう可能性があるため今回は利用しない．
+
+
+http://www.mwsoft.jp/programming/munou/wikipedia\_data\_list.htmlによると，stub-meta-history.xmlが使えそうなので，これを利用する．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{wiki20150901.PNG}
+\caption{20150901のstub-meta-history}\label{サンプル図}
+\end{figure}
+
 
 
 \chapter{結果}
