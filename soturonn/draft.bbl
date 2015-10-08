@@ -1,5 +1,27 @@
 \begin{thebibliography}{1}
 
+\bibitem{wikirevo}
+アンドリュー・リー.
+\newblock
+  ウィキペディア・レボリューション　世界最大の百科事典はいかにして生まれたか.
+\newblock 株式会社早川書房, 2009.
+
+\bibitem{wikiEdit}
+Wikipedia:チュートリアル 編集.
+\newblock
+  \url{https://ja.wikipedia.org/wiki/Wikipedia:%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB_%E7%B7%A8%E9%9B%86}（2014.9.15閲覧）.
+
+\bibitem{bigquerystart}
+清野克行.
+\newblock Google BigQueryではじめる自前ビッグデータ処理入門.
+\newblock 株式会社秀和システム, 2014.
+
+\bibitem{PMBOK}
+Project~Management Institute.
+\newblock プロジェクトマネジメント　知識体系ガイド（PMBOK
+  ガイド）.
+\newblock Project Management Inst, 2009.
+
 \bibitem{yabuki2011}
 矢吹太朗, 佐久田博司.
 \newblock

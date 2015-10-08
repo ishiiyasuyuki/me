@@ -88,7 +88,7 @@
 
 @Misc{wikiEdit,
   Title                    = {Wikipedia:チュートリアル 編集},
-  Note                     = {\url{https://ja.wikipedia.org/wiki/Wikipedia:%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB_%E7%B7%A8%E9%9B%86}（2014.9.15閲覧）},
+  Note                     = {https://ja.wikipedia.org/wiki/Wikipedia:%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB_%E7%B7%A8%E9%9B%86},
 
   Owner                    = {ishii},
   Timestamp                = {2015.10.08}
