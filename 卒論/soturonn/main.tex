@@ -411,13 +411,13 @@ VirtualBoxを使う上での注意点
 
 \subsection{ダウンロード}
 
-Oracleが提供しているOracleVitualBoxというのを下記のサイトからダウンロードする．本研究ではWindowsOSを使用しているので，VirtualBox platform packagesの中にある「VirtualBox 5.0.4 for Windows hosts」 というのを選択する．
+Oracleが提供しているOracleVirtualBoxというのを下記のサイトからダウンロードする．本研究ではWindowsOSを使用しているので，VirtualBox platform packagesの中にある「VirtualBox 5.0.4 for Windows hosts」 というのを選択する．
 
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=13cm]{VitualBox.png}
-\caption{図の挿入例}\label{サンプル図}
+\includegraphics[width=13cm]{VirtualBox.png}
+\caption{ダウンロードサイト}\label{サンプル図}
 \end{figure}
 
 
@@ -428,18 +428,120 @@ https://www.virtualbox.org/wiki/Downloads
 
 \subsection{インストーラーの実行}
 
-下記のサイトからVirtualBoxの導入からOSインストールまでの解説が載ってるので参考にする．
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{VBcaveat.png}
+\caption{警告画面}\label{サンプル図}
+\end{figure}
+
+インストーラーを起動し，セットアップウィザードを起動する．
+「セキュリティの警告」ダイアログが表示された場合は，「実行」をクリックする．
+
 
 %図の挿入
 \begin{figure}[H]
 \centering
-\includegraphics[width=13cm]{sample12.png}
-\caption{図の挿入例}\label{サンプル図}
+\includegraphics[width=13cm]{VBsetup.png}
+\caption{セットアップ画面1}\label{サンプル図}
 \end{figure}
 
-参考サイト
+右下の「Next」をクリックする．
 
-http://success.tracpath.com/blog/2013/10/15/virtualbox%E3%81%AE%E5%B0%8E%E5%85%A5%E3%81%8B%E3%82%89os%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%BE%E3%81%A7%E3%81%AE%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2/
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{VBsetup2.jpg}
+\caption{セットアップ画面2}\label{サンプル図}
+\end{figure}
+
+VitualBox Applicationを選択したまま，「Next」をクリックする．
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{VBsetup3.jpg}
+\caption{セットアップ画面3}\label{サンプル図}
+\end{figure}
+
+2つともチェックマークをつけたまま，「Next」をクリックする．
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{Warning.jpg}
+\caption{セットアップ画面4}\label{サンプル図}
+\end{figure}
+
+Warning:Network Interfaces画面が表示されたら，「Yes」をクリックする．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{Install.jpg}
+\caption{セットアップ画面5}\label{サンプル図}
+\end{figure}
+
+Ready to Install画面が表示されたら，「Install」をクリックする．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{useracount.jpg}
+\caption{ユーザーアカウント制御画面}\label{サンプル図}
+\end{figure}
+
+インストール中にユーザーアカウント制御によって，ソフトウェアのインストールを許可する必要がある．
+
+その場合は画面が表示されるので，「はい」をクリックする．
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{It_is_install.jpg}
+\caption{インストール中の画面}\label{サンプル図}
+\end{figure}
+
+インストール実行画面になるので、終了するまでそのままにする．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{device_install.jpg}
+\caption{Windowsセキュリティの画面}\label{サンプル図}
+\end{figure}
+
+Windowsセキュリティの画面が表示されたら，「'OracleCorporation'からのソフトウェアを常に信頼する」というところにチェックし，インストールをクリックする．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{install_finish.jpg}
+\caption{インストール完了の画面}\label{サンプル図}
+\end{figure}
+
+インストールが完了すると，インストール後にVirtualBoxを起動するか聞かれる．起動してもしなくても構わない．
+
+「Finish」をクリックすれば，インストール完了．
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{VirtualBox_start.png}
+\caption{VirtualBox起動時の画面}\label{サンプル図}
+\end{figure}
+
+インストールした「VirtualBox.exe」を起動して正常に動くか確認する．
+
+
+%上からスタート
+
+
 
 
 \section{用語}
