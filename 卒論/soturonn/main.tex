@@ -391,7 +391,7 @@ PMBOKに記載されている9つの知識エリアとは，何をやるべき�
 
 研究を行うための用意
 
-開発環境としてLinuxを扱う．そのために，VirtualBoxとCentOSを用意する． 
+開発環境としてLinuxを扱う．そのために，VirtualBoxとubuntuを用意する． 
 
 
 
@@ -638,6 +638,70 @@ Ubuntuは現在、そして将来に渡って無償で提供されます。ラ�
 \end{figure}
 
 
+\section{端末}
+
+本研究では，ダウンロードしたファイルをUbuntuの端末内で扱う．
+
+起動方法はいろいろあるが，2つ記載する
+\begin{enumerate}
+ \item ショートカットキーで起動する．
+
+ubuntuの画面を開いた状態で「Ctrl+Alt+T」を押す．このショートカットキーを押すだけで，端末が開く．
+
+ \item コンピュータとオンラインソースを検索」から起動する
+
+Launcherにある「Ubunutuソフトウェアセンター」を開く．「インストール済み」を選択する．
+検索ワード欄に「端末」または「ta」と入力する．カテゴリの中に「端末(gnome-terminal)」があるので、それを選択する．
+
+\end{enumerate}
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{tan.png}
+\caption{端末を起動した画面}\label{サンプル図}
+\end{figure}
+
+
+
+\section{MySQL}
+
+MySQLの操作，そこで使用したSQL文の説明を行う．MySQLの操作は，Ubuntuの端末内とphpmyadmiinで行う．
+
+\subsection{MySQLへのインストール}
+
+Ubuntuでは，以下のコマンドでMySQLをインストールを行う．途中でパスワードを聞かれたら，「pass」のような簡単なものを設定する．
+\\
+\\
+mysql>sudo apt-get install mysql-server mysql-client
+\\
+\\
+\subsection{MySQLへの接続}
+
+端末から接続を行う．端末内で次のように入力すればMySQLに接続できる．
+
+mysql -uユーザ名　-pパスワード --default-charcter-set=文字コード
+
+本研究では，ユーザ名は「root」，パスワードは「yasu0705」を入力する．またデータのインポートする際にLOAD文を使いたいので，MySQLの接続時に「mysql --local-infile・・・」と入力する．
+
+以下のように接続を行う．
+\\
+\\
+mysql>mysql -uroot -pyasu0705 --local-infile --default-character-set=utf8
+\\
+\\
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{MySQL_connection.png}
+\caption{MySLQ接続画面}\label{サンプル図}
+\end{figure}
+
+
+
+
 \section{Wikipediaの編集履歴データの取得}
 
 \subsection{ファイルのダウンロード}
@@ -654,7 +718,8 @@ Ubuntuは現在、そして将来に渡って無償で提供されます。ラ�
 再現性を確保するため，20150901番を扱う．latestだと，最新だが，日々更新されて変更されてしまう可能性があるため今回は利用しない．
 
 
-http://www.mwsoft.jp/programming/munou/wikipedia\_data\_list.htmlによると，stub-meta-history.xmlが使えそうなので，これを利用する．
+
+データの中身にどのようなものが調べた．\cite{wikipedia_data_list}調べた結果，stub-meta-history.xmlが使えそうなので，これを利用する．また、「stub-meta-history1」などの分割ファイルも利用する．
 
 %図の挿入
 \begin{figure}[H]
@@ -665,7 +730,222 @@ http://www.mwsoft.jp/programming/munou/wikipedia\_data\_list.htmlによると，
 
 
 
+
+
+
+
+
 \chapter{結果}
+
+
+
+\section{Wikipediaの履歴の調査}
+
+
+
+ダウンロードしたファイルの中身がどんななのか確認するため，以下のコマンドを入力する．qボタンを押すと終了する．
+\\
+\\
+gunzip -c jawiki-20150901-stub-meta-history.xml.gz | less
+\\
+\\
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{jawiki_contents.png}
+\caption{lessで中身確認}\label{サンプル図}
+\end{figure}
+
+
+\subsection{展開}
+
+展開する際は，「-k」をつける．wikipediaのダウンロードファイルは時間がかかるため，一度ダウンロードしたら消さずに取っておく．
+\\
+\\
+gunzip -k jawiki-20150901-stub-meta-history.xml.gz
+\\
+gunzip -k jawiki-20150901-stub-meta-history\{1,2,3,4\}.xml.gz
+\\
+\\
+
+
+
+
+
+
+
+\subsection{revision数}
+
+ページごとのrevision数を求める．詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevisions.pyを参照．
+\\
+\\
+cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py | less
+\\
+\\
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{wiki_revisions.png}
+\caption{revisions数の確認}\label{サンプル図}
+\end{figure}
+
+データを取る際は「| less」の部分を「> ファイル名」にする．本研究では，以下のように取得した．
+\\
+\\
+cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py > revisions.dat
+\\
+\\
+次に取得したデータから，revision数が多いページを見つけるため，以下のコマンドを入力する．詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevisions.shを参照．
+\\
+\\
+time sh revisions.sh
+\\
+\\
+抽出したデータを確認する為，以下のコマンドを入力する．
+\\
+\\
+head sort.dat
+\\
+\\
+結果は以下のとおり
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{head_sort.png}
+\caption{revisions数の多いページ}\label{サンプル図}
+\end{figure}
+
+
+
+
+\subsection{並列化}
+
+wikipediaの編集履歴データには，「jawiki-20150901-stub-meta-history1.xml」などの分割ファイルがある．これらを扱うことを行う．
+
+準備として，以下のコマンドを入力し，page要素の途中では分割されていないことを確認する．「stub-meta-history」の分割ファイルは4つあるので，4つとも確認する．
+\\
+\\
+tail jawiki-20150901-stub-meta-history1.xml
+\\
+ファイルの並列化をして，revision数を求める．以下のコマンドを入力する．
+\\
+\\
+cat jawiki-20150901-stub-meta-history1.xml | python3 revisions.py > revisions1.dat \& \\
+cat jawiki-20150901-stub-meta-history2.xml | python3 revisions.py > revisions2.dat \& \\
+cat jawiki-20150901-stub-meta-history3.xml | python3 revisions.py > revisions3.dat \& \\
+cat jawiki-20150901-stub-meta-history4.xml | python3 revisions.py > revisions4.dat \& \\
+\\
+\\
+次に結合してソートするため，以下のコマンドを入力する．
+\\
+\\
+cat revisions{1,2,3,4}.dat | sort -r -n -k 2 -t "   " > sort-parallel.dat
+\\
+\\
+データを抽出したら「head sort-parllel.dat」で結果を確認する． \\
+「diff sort.dat sort-parallel.dat」で，一括データと分割データの違いを見る．結果が空，つまり両者に違いが無ければ同じデータが取れている．
+
+
+
+
+\subsection{差し戻し回数}
+
+「stub-meta-history」のデータの中には，SHA1が入っていた．SHA1とは，認証やデジタル署名などに使われるハッシュ関数のひとつである．2の62条ビット以下の原文から
+160ビットの「ハッシュ値」を生成し，通信経路の両端で比較することで，通信途中で原文が改ざんされていないかを検出することが出来る．
+
+このSHA1が同じなら差し戻しとみなすことにする．ただし，以下の問題はある．
+\begin{itemize}
+ \item テキストが違ってもSHA1が同じになることはある．
+ \item 差し戻してそのまま編集された場合をかうんとできない．
+\end{itemize}
+
+SHA1を単純にか添えた結果が編集回数にする．そこから重複を削除した結果が差し戻し以外の回数とし，両方の差が，ここでいう差し戻しの解すという定義にする．
+詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevert.pyを参照．
+
+以下のコマンドを入力する．\\
+\\
+cat jawiki-20150901-stub-meta-history1.xml | python3 revert.py > revert1.dat \& \\
+cat jawiki-20150901-stub-meta-history2.xml | python3 revert.py > revert2.dat \& \\
+cat jawiki-20150901-stub-meta-history3.xml | python3 revert.py > revert3.dat \& \\
+cat jawiki-20150901-stub-meta-history4.xml | python3 revert.py > revert4.dat \& \\
+\\
+次に抽出したデータを一括し，ソートする．\\
+\\
+cat revert{1,2,3,4}.dat | sort -r -n -k 4 -t "  " > revert.dat \\
+\\
+「head revert.dat」の結果は以下のとおり．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=14cm]{head_revert.png}
+\caption{差し戻し回数の多いページ}\label{サンプル図}
+\end{figure}
+
+
+\subsection{編集者の調査}
+
+
+「stub-meta-history」の中から，「pageId[tab]revisionId[tab]userId[tab]ip」というデータを作るため，以下のプログラムを作る．\\
+\\
+\# -*- coding: utf-8 -*- \\
+\\
+import xml.sax \\
+import sys \\
+
+class myHandler(xml.sax.ContentHandler): \\
+  reading = \{"id":False, "contributor":False, "revision":False, "ip":False, "timestamp":False\} \\
+  pageId = "" \\
+  revisionId = "" \\
+  userId = "" \\
+  ip = "" \\
+  timestamp = "" \\
+\\
+  def \_\_init\_\_(self): \\
+    xml.sax.ContentHandler.\_\_init\_\_(self) \\
+\\ 
+  def startElement(self, name, attrs): \\
+    self.reading[name] = True \\
+\\ 
+  def endElement(self, name): \\
+    self.reading[name] = False \\
+    if name == "page": \\
+      self.pageId = "" \\
+    elif name == "revision": \\
+      print(self.pageId + "\t" + self.revisionId + "\t" + self.userId + "\t" + self.ip + "\t" + \\
+      self.timestamp) \\
+      self.revisionId = "" \\
+      self.userId = "" \\
+      self.ip = "" \\
+      self.timestamp = "" \\
+\\ 
+  def characters(self, content): \\
+    if self.reading["id"] == True: \\
+      if self.reading["contributor"] == True: \\
+        self.userId = self.userId + content \\
+      elif self.reading["revision"] == True: \\
+        self.revisionId = self.revisionId + content \\
+      else: \\
+        self.pageId = self.pageId + content \\
+    elif self.reading["ip"] == True: \\
+        self.ip = self.ip + content \\
+\\        
+    elif self.reading["timestamp"] == True: \\
+    	self.timestamp = self.timestamp + content \\
+        \\
+def main(): \\
+  xml.sax.parse(sys.stdin, myHandler()) \\
+ \\
+if \_\_name\_\_ == "\_\_main\_\_": \\
+  main() \\
+
+
+
+
+%↑ここからスタート
+
+
 
 \chapter{考察}
 

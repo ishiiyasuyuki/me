@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{wikirevo}
 アンドリュー・リー.
@@ -21,6 +21,11 @@ Project~Management Institute.
 \newblock プロジェクトマネジメント　知識体系ガイド（PMBOK
   ガイド）.
 \newblock Project Management Inst, 2009.
+
+\bibitem{wikipedia_data_list}
+Wikipediaのダウンロードできるデータファイル一覧.
+\newblock
+  \url{http://www.mwsoft.jp/programming/munou/wikipedia_data_list.html}（2015.05.20閲覧）.
 
 \bibitem{yabuki2011}
 矢吹太朗, 佐久田博司.

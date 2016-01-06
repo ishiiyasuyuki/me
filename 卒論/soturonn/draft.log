@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2014.9.30)  28 DEC 2015 21:33
+This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2014.9.30)  6 JAN 2016 22:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -409,6 +409,24 @@ LaTeX Warning: Label `サンプル図' multiply defined.
 
 LaTeX Warning: Label `サンプル図' multiply defined.
 
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
+
+LaTeX Warning: Label `サンプル図' multiply defined.
+
 )
 \openout1 = `draft.aux'.
 
@@ -714,54 +732,76 @@ File: VBoxWindow.PNG Graphic file (type bmp)
 <VBoxWindow.PNG> [31]
 File: Ubuntu_on_VirtualBox.PNG Graphic file (type bmp)
  <Ubuntu_on_VirtualBox.PNG> [32]
+File: tan.png Graphic file (type bmp)
+ <tan.png> [33]
+File: MySQL_connection.png Graphic file (type bmp)
+
+<MySQL_connection.png> [34]
 File: Index_of_jawiki.PNG Graphic file (type bmp)
  <Index_of_jawiki.PNG>
-[33]
 File: wiki20150901.PNG Graphic file (type bmp)
- <wiki20150901.PNG> [34]
+ <wiki20150901.PNG> [35]
+[36]
 第5章
-[35
-
-] [36
+File: jawiki_contents.png Graphic file (type bmp)
+<jawiki_contents.png> [37
 
 ]
+File: wiki_revisions.png Graphic file (type bmp)
+ <wiki_revisions.png> [38]
+File: head_sort.png Graphic file (type bmp)
+ <head_sort.png> [39]
+File: head_revert.png Graphic file (type bmp)
+
+<head_revert.png> [40]
+LaTeX Font Info:    Try loading font information for OML+txr on input line 916.
+
+ (c:/texlive/2014/texmf-dist/tex/latex/txfonts/omltxr.fd
+File: omltxr.fd 2000/12/15 v3.1
+)
+LaTeX Font Info:    Font shape `OML/txr/m/n' in size <10> not available
+(Font)              Font shape `OML/txmi/m/it' tried instead on input line 916.
+
+[41] [42]
 第6章
-[37] [38
+[43
+
+] [44
 
 ]
 第7章
 File: figure.pdf Graphic file (type pdf)
 <figure.pdf>
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 681.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 961.
 
  (c:/texlive/2014/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
-(./draft.bbl [39] [40
+(./draft.bbl [45] [46
 
 ]
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 50.
+(Font)              scaled to size 6.47278pt on input line 55.
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 686.
- [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 686.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 966.
+ [47]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 966.
  (./draft.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 686.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 686.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 966.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 966.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 686.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 966.
  ) ) 
 Here is how much of TeX's memory you used:
- 9056 strings out of 493792
- 128544 string characters out of 6154344
- 199820 words of memory out of 5000000
- 12364 multiletter control sequences out of 15000+600000
+ 9093 strings out of 493792
+ 129212 string characters out of 6154344
+ 199862 words of memory out of 5000000
+ 12388 multiletter control sequences out of 15000+600000
  56044 words of font info for 143 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  30i,8n,28p,1009b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on draft.dvi (41 pages, 80924 bytes).
+Output written on draft.dvi (47 pages, 96988 bytes).
