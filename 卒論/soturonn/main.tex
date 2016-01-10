@@ -671,12 +671,11 @@ MySQLの操作，そこで使用したSQL文の説明を行う．MySQLの操作�
 
 \subsection{MySQLへのインストール}
 
-Ubuntuでは，以下のコマンドでMySQLをインストールを行う．途中でパスワードを聞かれたら，「pass」のような簡単なものを設定する．
+Ubuntuでは，以下のコマンドでMySQLをインストールを行う．途中でパスワードを聞かれたら，「pass」のような簡単なものを設定する． \\
 \\
+mysql>sudo apt-get install mysql-server mysql-client \\
 \\
-mysql>sudo apt-get install mysql-server mysql-client
-\\
-\\
+
 \subsection{MySQLへの接続}
 
 端末から接続を行う．端末内で次のように入力すればMySQLに接続できる．
@@ -685,12 +684,9 @@ mysql -uユーザ名　-pパスワード --default-charcter-set=文字コード
 
 本研究では，ユーザ名は「root」，パスワードは「yasu0705」を入力する．またデータのインポートする際にLOAD文を使いたいので，MySQLの接続時に「mysql --local-infile・・・」と入力する．
 
-以下のように接続を行う．
+以下のように接続を行う． \\
 \\
-\\
-mysql>mysql -uroot -pyasu0705 --local-infile --default-character-set=utf8
-\\
-\\
+mysql>mysql -uroot -pyasu0705 --local-infile --default-character-set=utf8 \\
 
 %図の挿入
 \begin{figure}[H]
@@ -699,8 +695,16 @@ mysql>mysql -uroot -pyasu0705 --local-infile --default-character-set=utf8
 \caption{MySLQ接続画面}\label{サンプル図}
 \end{figure}
 
+\subsection{phpmyadmin}
 
+PHPで実装されたMySQLの管理ツール．MySQLのデータベースやテーブルの作成を行ったり，データの追加や参照などを作成することなくブラウザから行うことができる．
 
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{phpmyadmin_main.png}
+\caption{phpmyadminのメインページ}\label{サンプル図}
+\end{figure}
 
 \section{Wikipediaの編集履歴データの取得}
 
@@ -730,7 +734,40 @@ mysql>mysql -uroot -pyasu0705 --local-infile --default-character-set=utf8
 
 
 
+\section{XMLファイル}
 
+WikipediaのデータはXMLというものだった．XMLとは，ExtensibleMarkupLanguageの略であり，インターネット上でさまざまなデータを扱う倍いに利点があるファイルである．1998年にでた比較的新しい言語だが，仕様が簡単なため，広く使用されるようになった．
+
+XML文書はテキストファイルの形で存在するため，そのままソフトで利用することが出来ない．個々のソフトの中にXML文書を解釈するプログラムを持たせる方法があるが，XMLは一定の形式が定められているため，汎用的な解釈プログラムであるXMLパーサーによって変換したデータをソフトが使うようにした方が効率が良い．アプリケーションソフトでXML文書を扱う場合には，直接XML文書を読むのではなく，XMLパーサを扱うのが一般的になっている．\cite{xml1}
+
+
+
+
+\section{XMLパーサ}
+
+XML文書を，アプリケーションソフトが利用しやすい形に変換するソフトウェアのこと．変換時に，XML文書が文法に照らして性格に記述されているかどうかを同時に検証するものである．
+
+XMLパーサの中にはDOM(Document Object Model)と，SAX(Simple API for XML)という最も広く利用されている標準的なAPIがある．
+
+本研究では，このXMLの文書の操作には．SAXパーサというものを用いて扱う．Wikipediaの編集履歴データは膨大な為，木構造として全てのデータを読み込んでから処理するDOMパーサでは，データの扱いが困難なためである．
+
+
+
+\subsection{DOMパーサ}
+
+DOMとは，XML文書やHTML文書を構成する要素をコンピュータプログラムで参照したり操作したりするための取り決め(API)の1つである．
+
+HTMLやXMLで記述されたWebページなどの構成要素（見出し，段落，領域，画像，リンクなど）と，それらの配置は見栄えなどを定めた属性情報などを参照，制御する手法を定めている．Webブラウザなどに実装されており，ページ上にJavaScriptなどで記述されたスクリプトからページ内の各要素を読み取ったり，内容や設定の変更，要素の追加や削除などを行う標準的な手段として用いられる．
+
+文書をDOMで表したデータは，文書の最上位の要素を頂点として，各要素が枝分かれしていく木構造（ツリー構造）となっており，これを「DOMツリー」と呼ぶこともある．\cite{DOM1}
+
+
+
+\subsection{SAXパーサ}
+
+XML文書の解釈や検証を行う「XMLパーサー」というプログラムを利用する際に使う利用手順の1つである．また，DOMと並んで最も広く利用されているAPIの１つとして使われる．
+
+XML文書を一つの木構造に変換するDOMと違って，XML文書を先頭から一行ずつ読み込んで，要素が現れるたびに対応する処理手順を呼び出すという方式を用いている．よって巨大なXMを扱ってもメモリに負担がかからず高速に処理できるという特徴がある．その反面，文書の構造を自由にたどれないので，処理の柔軟性に劣り，複雑な処理には向かない．\cite{SAX1}
 
 
 
@@ -776,11 +813,57 @@ gunzip -k jawiki-20150901-stub-meta-history\{1,2,3,4\}.xml.gz
 
 \subsection{revision数}
 
-ページごとのrevision数を求める．詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevisions.pyを参照．
+ページごとのrevision数を求める．詳細は以下のrevisions.pyを参照． \\
 \\
+revisions.py
+
+{\small
+\begin{verbatim}
+
+# -*- coding: utf-8 -*-
+
+import xml.sax
+import sys
+
+class myHandler(xml.sax.ContentHandler):
+  reading = {"title":False}
+  title = ""
+  revisions = 0
+
+  def __init__(self):
+    xml.sax.ContentHandler.__init__(self)
+ 
+  def startElement(self, name, attrs):
+    self.reading[name] = True
+ 
+  def endElement(self, name):
+    self.reading[name] = False
+    if name == "page":
+      print(self.title + "\t" + str(self.revisions))
+      self.title = ""
+      self.revisions = 0
+    elif name == "revision":
+      self.revisions = self.revisions + 1
+ 
+  def characters(self, content):
+    if self.reading["title"] == True:
+      self.title = self.title + content
+  
+def main():
+  xml.sax.parse(sys.stdin, myHandler())
+ 
+if __name__ == "__main__":
+  main()
+
+\end{verbatim}}
+
+
+
+
+
+以下のコマンドを入力する． \\
 \\
-cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py | less
-\\
+cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py | less \\
 \\
 %図の挿入
 \begin{figure}[H]
@@ -789,23 +872,23 @@ cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py | less
 \caption{revisions数の確認}\label{サンプル図}
 \end{figure}
 
-データを取る際は「| less」の部分を「> ファイル名」にする．本研究では，以下のように取得した．
+データを取る際は「| less」の部分を「> ファイル名」にする．本研究では，以下のように取得した． \\
 \\
+cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py > revisions.dat \\
 \\
-cat jawiki-20150901-stub-meta-history.xml | python3 revisions.py > revisions.dat
+次に取得したデータから，revision数が多いページを見つける．詳細は以下のrevisions.shを参照． \\
 \\
+revisions.sh \\
 \\
-次に取得したデータから，revision数が多いページを見つけるため，以下のコマンドを入力する．詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevisions.shを参照．
+cat revisions.dat | sort -r -n -k 2 -t "     " > sort.dat （""の中はTAB） \\
 \\
+以下のコマンドを入力する．\\
 \\
-time sh revisions.sh
+time sh revisions.sh \\
 \\
+抽出したデータを確認する為，以下のコマンドを入力する． \\
 \\
-抽出したデータを確認する為，以下のコマンドを入力する．
-\\
-\\
-head sort.dat
-\\
+head sort.dat \\
 \\
 結果は以下のとおり
 
@@ -861,7 +944,58 @@ cat revisions{1,2,3,4}.dat | sort -r -n -k 2 -t "   " > sort-parallel.dat
 \end{itemize}
 
 SHA1を単純にか添えた結果が編集回数にする．そこから重複を削除した結果が差し戻し以外の回数とし，両方の差が，ここでいう差し戻しの解すという定義にする．
-詳細はgithubにあるyabukilabのlibrary→wikipedia→dumpのrevert.pyを参照．
+詳細は以下のrevert.pyを参照．\\
+\\
+revert.py
+
+{\small
+\begin{verbatim}
+
+# -*- coding: utf-8 -*-
+
+import xml.sax
+import sys
+
+class myHandler(xml.sax.ContentHandler):
+  reading = {"title":False, "sha1":False}
+  title = ""
+  revisions = 0
+  sha1 = ""
+  sha1s = set() #SHA1を数える（重複なし）
+
+  def __init__(self):
+    xml.sax.ContentHandler.__init__(self)
+ 
+  def startElement(self, name, attrs):
+    self.reading[name] = True
+ 
+  def endElement(self, name):
+    self.reading[name] = False
+    if name == "page":
+      revert = self.revisions - len(self.sha1s) #差し戻し回数
+      print(self.title + "\t" + str(self.revisions) + "\t" + str(len(self.sha1s)) + "\t" + str(revert))
+      self.title = ""
+      self.revisions = 0
+      self.sha1s.clear() #SHA1の集合をクリア
+    elif name == "sha1":
+      self.revisions = self.revisions + 1
+      self.sha1s.add(self.sha1)
+      self.sha1 = ""
+ 
+  def characters(self, content):
+    if self.reading["title"] == True:
+      self.title = self.title + content
+    elif self.reading["sha1"] == True:
+      self.sha1 = self.sha1 + content
+  
+def main():
+  xml.sax.parse(sys.stdin, myHandler())
+ 
+if __name__ == "__main__":
+  main()
+
+\end{verbatim}}
+
 
 以下のコマンドを入力する．\\
 \\
@@ -886,64 +1020,174 @@ cat revert{1,2,3,4}.dat | sort -r -n -k 4 -t "  " > revert.dat \\
 
 \subsection{編集者の調査}
 
+「stub-meta-history」の中から，「pageId[tab]revisionId[tab]userId[tab]ip」というデータを作る．詳細は以下のeditors2.pyを参照． \\
+\\
+editors2.py
 
-「stub-meta-history」の中から，「pageId[tab]revisionId[tab]userId[tab]ip」というデータを作るため，以下のプログラムを作る．\\
-\\
-\# -*- coding: utf-8 -*- \\
-\\
-import xml.sax \\
-import sys \\
+{\small
+\begin{verbatim}
+# -*- coding: utf-8 -*-
 
-class myHandler(xml.sax.ContentHandler): \\
-  reading = \{"id":False, "contributor":False, "revision":False, "ip":False, "timestamp":False\} \\
-  pageId = "" \\
-  revisionId = "" \\
-  userId = "" \\
-  ip = "" \\
-  timestamp = "" \\
+import xml.sax
+import sys
+
+class myHandler(xml.sax.ContentHandler):
+  reading = {"id":False, "contributor":False, "revision":False, "ip":False, "timestamp":False}
+  pageId = ""
+  revisionId = ""
+  userId = ""
+  ip = ""
+  timestamp = ""
+
+  def __init__(self):
+    xml.sax.ContentHandler.__init__(self)
+
+  def startElement(self, name, attrs):
+    self.reading[name] = True
+
+  def endElement(self, name):
+    self.reading[name] = False
+    if name == "page":
+      self.pageId = ""
+    elif name == "revision":
+      print(self.pageId + "\t" + self.revisionId + "\t" + self.userId + "\t" + self.ip + "\t" +
+      self.timestamp)
+      self.revisionId = ""
+      self.userId = ""
+      self.ip = ""
+      self.timestamp = ""
+
+  def characters(self, content):
+    if self.reading["id"] == True:
+      if self.reading["contributor"] == True:
+        self.userId = self.userId + content
+      elif self.reading["revision"] == True:
+        self.revisionId = self.revisionId + content
+      else:
+        self.pageId = self.pageId + content
+    elif self.reading["ip"] == True:
+        self.ip = self.ip + content
+
+    elif self.reading["timestamp"] == True:
+    	self.timestamp = self.timestamp + content
+
+def main():
+  xml.sax.parse(sys.stdin, myHandler()) 
+if __name__ == "__main__":
+  main()
+\end{verbatim}}
+
+以下のコマンドを入力した．\\
 \\
-  def \_\_init\_\_(self): \\
-    xml.sax.ContentHandler.\_\_init\_\_(self) \\
-\\ 
-  def startElement(self, name, attrs): \\
-    self.reading[name] = True \\
-\\ 
-  def endElement(self, name): \\
-    self.reading[name] = False \\
-    if name == "page": \\
-      self.pageId = "" \\
-    elif name == "revision": \\
-      print(self.pageId + "\t" + self.revisionId + "\t" + self.userId + "\t" + self.ip + "\t" + \\
-      self.timestamp) \\
-      self.revisionId = "" \\
-      self.userId = "" \\
-      self.ip = "" \\
-      self.timestamp = "" \\
-\\ 
-  def characters(self, content): \\
-    if self.reading["id"] == True: \\
-      if self.reading["contributor"] == True: \\
-        self.userId = self.userId + content \\
-      elif self.reading["revision"] == True: \\
-        self.revisionId = self.revisionId + content \\
-      else: \\
-        self.pageId = self.pageId + content \\
-    elif self.reading["ip"] == True: \\
-        self.ip = self.ip + content \\
-\\        
-    elif self.reading["timestamp"] == True: \\
-    	self.timestamp = self.timestamp + content \\
-        \\
-def main(): \\
-  xml.sax.parse(sys.stdin, myHandler()) \\
- \\
-if \_\_name\_\_ == "\_\_main\_\_": \\
-  main() \\
+cat jawiki-20150901-stub-meta-history.xml | python3 editors2.py | less \\
+\\
+結果は以下のとおりである．データとしてとる場合は「| less」の部分を「> editors2.dat」とした． \\
+
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{editors2_data.png}
+\caption{編集者の調査}\label{サンプル図}
+\end{figure}
+
+
+このeditors2.datをmysqlにインポートしたいため，CSV化する．そのため，以下のようにコマンドを入力し，「,」区切りにする．csvファイルでとるときは「| less」の部分を「> editors2.csv」とかする．\\
+\\
+cat editors2.dat | awk 'BEGIN \{FS="\t";\} \{print \$1","\$2","\$3","\$4","\$5\}' | less \\
+\\
+結果は以下のとおり，
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{editors2_csv.png}
+\caption{編集者の調査csv化}\label{サンプル図}
+\end{figure}
+
+
+editors2.csvのuserIdから役割がある人（管理者とかbotとか）たちにroleをつける．詳細はwikipediaが提供しているデータにある「jawiki-latest-user\_groups.sql.gz」を参照する． \\
+本研究では「jawiki-20150901-user\_groups.sql.gz」を使用．中身は以下のとおり． 
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{user_group1.png}
+\caption{ユーザーグループ情報}\label{サンプル図}
+\end{figure}
+
+
+\subsection{外部結合}
+
+「editors2.csv」と「jawiki-20150901-user\_groups.sql」の外部結合を行う．　\\
+外部結合を行う際はmysql内で行う． \\
+
+
+\subsubsection{インポート}
+
+2つのファイルをmysqlへインポートする．\\
+\\
+editors2.pyの場合 \\
+\\
+ローカル内でmysqlへ接続して行った．\\
+まずインポート先のテーブル作成を行う．以下のように入力する．
+
+
+{\small
+\begin{verbatim}
+
+mysql>CREATE TABEL editors(
+                       pageId INT NOT NULL,
+                       revisionId INT NOT NULL,
+                       userId VARCHAR(30) NOT NULL,
+                       ip VARCHAR(30) NOT NULL,
+                       timestamp TIMESTAMP NOT NULL,
+                       KEY (userId)
+                      )DEFAULT CHARSET=utf8;
+
+\end{verbatim}}
+
+そして，作成したeditorsテーブルへ「editors2.csv」ファイルをインポートする．以下のように入力する．（この作業は3時間くらいかかる．）
+
+{\small
+\begin{verbatim}
+
+mysql>LOAD DATA LOCAL INFILE "/home/ishii/yasuwiki/editors2.csv" INTO TABLE editors
+         FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+         (pageId,revisionId,userId,ip,timestamp);
+
+\end{verbatim}}
+
+インポートが完了したら，以下のように入力し，中身を確認する（LIMITをつけているのはデータ量が膨大なため，全て処理すると時間がかかってしまうから）
+
+{\small
+\begin{verbatim}
+
+mysql>SELECT * FROM editors LIMIT 100;
+
+\end{verbatim}}
+
+結果はこのようになっていれば終了．
+
+%図の挿入
+\begin{figure}[H]
+\centering
+\includegraphics[width=10cm]{editors_table_check.png}
+\caption{editorsテーブルの中身を確認}\label{サンプル図}
+\end{figure}
+
+jawiki-20150901-user\_groups.sqlの場合\\
+\\
+phpmyadminからインポートを行った．
+
+
 
 
 
 
 %↑ここからスタート
+
+
 
 
 

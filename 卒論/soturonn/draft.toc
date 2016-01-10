@@ -27,15 +27,22 @@
 \contentsline {section}{\numberline {4.7}MySQL}{34}{section.4.7}
 \contentsline {subsection}{\numberline {4.7.1}MySQLへのインストール}{34}{subsection.4.7.1}
 \contentsline {subsection}{\numberline {4.7.2}MySQLへの接続}{34}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.3}phpmyadmin}{35}{subsection.4.7.3}
 \contentsline {section}{\numberline {4.8}Wikipediaの編集履歴データの取得}{35}{section.4.8}
 \contentsline {subsection}{\numberline {4.8.1}ファイルのダウンロード}{35}{subsection.4.8.1}
-\contentsline {chapter}{\numberline {第5章}結果}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Wikipediaの履歴の調査}{37}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}展開}{38}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}revision数}{38}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}並列化}{39}{subsection.5.1.3}
-\contentsline {subsection}{\numberline {5.1.4}差し戻し回数}{40}{subsection.5.1.4}
-\contentsline {subsection}{\numberline {5.1.5}編集者の調査}{41}{subsection.5.1.5}
-\contentsline {chapter}{\numberline {第6章}考察}{43}{chapter.6}
-\contentsline {chapter}{\numberline {第7章}結論}{45}{chapter.7}
-\contentsline {chapter}{参考文献}{47}{chapter*.3}
+\contentsline {section}{\numberline {4.9}XMLファイル}{37}{section.4.9}
+\contentsline {section}{\numberline {4.10}XMLパーサ}{37}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}DOMパーサ}{37}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}SAXパーサ}{37}{subsection.4.10.2}
+\contentsline {chapter}{\numberline {第5章}結果}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Wikipediaの履歴の調査}{39}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}展開}{40}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}revision数}{40}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}並列化}{42}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}差し戻し回数}{43}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}編集者の調査}{45}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {5.1.6}外部結合}{48}{subsection.5.1.6}
+\contentsline {subsubsection}{インポート}{48}{section*.3}
+\contentsline {chapter}{\numberline {第6章}考察}{51}{chapter.6}
+\contentsline {chapter}{\numberline {第7章}結論}{53}{chapter.7}
+\contentsline {chapter}{参考文献}{55}{chapter*.4}

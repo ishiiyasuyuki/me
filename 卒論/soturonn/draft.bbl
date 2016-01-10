@@ -27,6 +27,19 @@ Wikipediaのダウンロードできるデータファイル一覧.
 \newblock
   \url{http://www.mwsoft.jp/programming/munou/wikipedia_data_list.html}（2015.05.20閲覧）.
 
+\bibitem{xml1}
+Xmlパーサ - it用語辞典 e-words.
+\newblock
+  \url{http://e-words.jp/w/XML%E3%83%91%E3%83%BC%E3%82%B5.html}（2015.06.01閲覧）.
+
+\bibitem{DOM1}
+Domパーサ - it用語辞典 e-words.
+\newblock \url{http://e-words.jp/w/DOM-1.html}（2015.06.01閲覧）.
+
+\bibitem{SAX1}
+Sax - it用語辞典 e-words.
+\newblock \url{http://e-words.jp/w/SAX.html}（2015.06.01閲覧）.
+
 \bibitem{yabuki2011}
 矢吹太朗, 佐久田博司.
 \newblock
