@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2014.9.30)  23 JAN 2016 20:26
+This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2014.9.30)  23 JAN 2016 20:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -495,9 +495,9 @@ File: utxsyc.fd 2000/12/15 v3.1
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-File: editors_per2.pdf Graphic file (type pdf)
+File: editors_per.pdf Graphic file (type pdf)
 
-<editors_per2.pdf>
+<editors_per.pdf>
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 86.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
@@ -531,7 +531,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 105.
  ) 
 Here is how much of TeX's memory you used:
  8923 strings out of 493792
- 126549 string characters out of 6154344
+ 126546 string characters out of 6154344
  199229 words of memory out of 5000000
  12300 multiletter control sequences out of 15000+600000
  40435 words of font info for 122 fonts, out of 8000000 for 9000
